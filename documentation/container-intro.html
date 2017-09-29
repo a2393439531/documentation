@@ -93,3 +93,28 @@ application package.
 </p>
 
 
+
+<h1 id="plugins-upgrade">Upgrade of Plug-ins</h1>
+<p>
+When a new version of the application is deployed, a new instance of the plugin
+is created. There is a period of time during which the new and old version of the
+plugin run concurrently.
+</p>
+
+<p>
+All new requests will be forwarded to the new plugin instance, while the old requests
+are finished by the old instance and then the old instance is deconstructed. This
+allows upgrade of the application without any disruption in service.
+</p>
+
+<!--
+<h2 id="non-concurrent-plugins">Non-concurrent Plug-ins</h2>
+If your plug-in requires exclusivity, a lock provider may be injected to the
+constructor of your plugin. This is only needed if your plugin keeps an internal state
+<b>and</b> interacts with an external resource based on the internal state.
+
+Example of usage:
+<pre>
+
+</pre>
+-->
